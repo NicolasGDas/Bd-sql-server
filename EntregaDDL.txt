@@ -1,0 +1,1 @@
+Buenas profe, le mandamos el ddl modificado para el tema de ponerle las PK a las tablas

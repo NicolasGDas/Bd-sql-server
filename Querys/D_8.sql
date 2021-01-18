@@ -1,0 +1,14 @@
+/*Listar Nro de Lector, Nombre, nro de Libro, Titulo, Descripción del Tipo de Libro , fecha
+de préstamo que aquellos Prestamos que hayan sido devueltos y el tipo de Libro sea
+Novela o Cuentos */
+
+SELECT PRES.NRO_LECTOR AS 'NRO LECTOR', LEC.NOMBRE AS NOMBRE, PRES.NRO_LIBRO AS 'NRO. LIBRO', LIB.TITULO AS TITULO, PRES.F_PREST AS 'FECHA PRESTAMO'
+FROM PRESTAMO PRES
+JOIN LECTOR LEC
+ON PRES.NRO_LECTOR = LEC.NRO_LECTOR
+JOIN LIBRO LIB
+ON PRES.NRO_LIBRO = LIB.NRO_LIBRO
+JOIN TIPOLIBRO TLIB
+ON LIB.TIPO = TLIB.TIPO
+WHERE PRES.F_DEVOL IS NOT NULL
+AND (TLIB.DESCTIPO = 'Novela' OR TLIB.DESCTIPO = 'Cuentos');

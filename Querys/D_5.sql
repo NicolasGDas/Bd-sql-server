@@ -1,0 +1,9 @@
+/*Listar el número de libro, el título, y la cantidad de préstamos realizados para ese libro
+a partir del año 2012 */
+
+
+SELECT LIB.NRO_LIBRO, MAX(LIB.TITULO) AS 'TITULOS', COUNT(PRES.NRO_COPIA) AS 'CANTIDAD PRESTAMOS'
+FROM LIBRO LIB INNER JOIN PRESTAMO PRES ON LIB.NRO_LIBRO = PRES.NRO_LIBRO
+WHERE PRES.F_PREST>= '2012'
+GROUP BY LIB.NRO_LIBRO
+
